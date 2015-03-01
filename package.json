@@ -2,6 +2,9 @@
   "name": "application-name",
   "version": "0.0.1",
   "repository": "https://github.com/m00nst3r/contacts-server.git",
+  "engines": {
+    "node": "0.10.x"
+  },
   "devDependencies": {
 
   },
