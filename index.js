@@ -6,9 +6,11 @@ var router      = express.Router();
 var Contacts    = require('./schemes/contacts');
 var GetContacts = require('./routes/get-contacts.js');
 var Contact     = require('./routes/contact.js');
+var CONFIG      = require('./config/config.js');
 
 var port = process.env.PORT || 3000;
 mongoose.connect('mongodb://localhost/test');
+//mongoose.connect("mongodb://" + CONFIG.DB.user + ":" + CONFIG.DB.password + CONFIG.DB.server);
 
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
@@ -28,7 +30,7 @@ router.route('/')
 router.route('/contact/:id')
     .get(Contact.GetContact)
     .put(Contact.UpdateContect)
-    .delete();
+    .delete(Contact.DeleteContact);
 
 router.use(function(req, res, next){
     next();

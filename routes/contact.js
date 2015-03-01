@@ -23,5 +23,16 @@ var updateContect = function (req, res) {
     })
 };
 
+var deleteContact = function(req, res){
+    Contacts.remove({
+        _id: req.params.id
+    }, function (err) {
+        if (err) res.send(err);
+
+        res.json({ message: 'Successfully deleted'  });
+    })
+};
+
 exports.GetContact = getContact;
 exports.UpdateContect = updateContect;
+exports.DeleteContact = deleteContact;
