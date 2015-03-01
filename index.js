@@ -9,8 +9,8 @@ var Contact     = require('./routes/contact.js');
 var CONFIG      = require('./config/config.js');
 
 var port = process.env.PORT || 3000;
-mongoose.connect('mongodb://localhost/test');
-//mongoose.connect("mongodb://" + CONFIG.DB.user + ":" + CONFIG.DB.password + CONFIG.DB.server);
+//mongoose.connect('mongodb://localhost/test');
+mongoose.connect("mongodb://" + CONFIG.DB.user + ":" + CONFIG.DB.password + CONFIG.DB.server);
 
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
